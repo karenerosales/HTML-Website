@@ -13,7 +13,7 @@
         }
         h1{
             color: white;
-            font-size: 70px;
+            font-size: 90px;
         }
         h2{
             color: white;
@@ -80,10 +80,33 @@
                 transform: rotateY(360deg);
             }
         }
+        .firework {
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            position: absolute;
+            animation: explode 2s infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-100px) scale(2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(3);
+            }
+        }
         </style>
     </head>
     
     <body>
+        <div class="firework"></div>
         <div class="slider">
             <div class="wrapper">
                 <div class="img-area">
