@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>For My Love</title>
-        <style>
+<head>
+    <title>For My Love</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
         body{
             background-color: pink;
             display:flex;
@@ -13,10 +14,11 @@
         }
         h1{
             color: white;
-            font-size: 70px;
+            font-size: 6vw; /* Responsive font size */
         }
         h2{
             color: white;
+            font-size: 4vw; /* Responsive font size */
         }
         button {
             border:none;
@@ -24,19 +26,110 @@
             cursor:pointer;
         }
         button img {
-            width: 300px;
+            width: 40vw; /* Responsive image size */
             height:auto;
         }
-        </style>
-    </head>
+        .slider{
+            display:flex;
+            justify-content: center;
+            align-items: center;
+            height: 50vh; /* Adjust height for smaller screens */
+        }
+        .wrapper{
+            width: 80vw; /* Responsive width */
+            height: 80vw; /* Maintain aspect ratio */
+            max-width: 300px; /* Limit maximum width */
+            max-height: 300px; /* Limit maximum height */
+            perspective: 1000px;
+        }
+        .img-area{
+            position:relative;
+            height: 100%;
+            width: 100%;
+            transform-style: preserve-3d;
+            transition: all 1s ease-in-out;
+            animation: animate 15s infinite;
+        }
+        .img-area img{
+            position: absolute;
+            width:100%;
+            height: 100%;
+        }
+        .img-area img:nth-child(1){
+            transform: rotateY(0) translateZ(150px);
+        }
+        .img-area img:nth-child(2){
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        .img-area img:nth-child(3){
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+        .img-area img:nth-child(4){
+            transform: rotateY(180deg) translateZ(150px);
+        }
+        @keyframes animate{
+            0%{
+                transform: rotateY(0);
+            }
+            25%{
+                transform: rotateY(90deg);
+            }
+            50%{
+                transform: rotateY(180deg);
+            }
+            75%{
+                transform: rotateY(270deg);
+            }
+            100%{
+                transform: rotateY(360deg);
+            }
+        }
+        .firework {
+            width: 4px;
+            height: 4px;
+            background-color: #fff;
+            position: absolute;
+            animation: explode 2s infinite;
+        }
+
+        @keyframes explode {
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: translateY(-100px) scale(2);
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-200px) scale(3);
+            }
+        }
+    </style>
+</head>
     
-    <body>
-        <h1>Bebecito</h1>
-        <a href="cutie.html">
-            <button>
-                <img src="./assets/balloons.png">
-            </button>
-        </a>
-        <h2>click me !</h2>
-    </body>
+<body>
+    <div class="firework"></div>
+    <h1>Bebecito</h1>
+    <a href="cutie.html">
+        <button>
+            <img src="./assets/balloons.png">
+        </button>
+    </a>
+    <h2>click me !</h2>
+    <div class="slider">
+        <div class="wrapper">
+            <div class="img-area">
+                <img src="./assets/cutie.jpg">
+                <img src="./assets/cutie.jpg">
+                <img src="./assets/cutie.jpg">
+                <img src="./assets/cutie.jpg">
+            </div>
+        </div>
+    </div>
+    <audio controls autoplay>
+        <source src="assets/lebron.mp3" type="audio/mpeg">
+    </audio>
+</body>
 </html>
